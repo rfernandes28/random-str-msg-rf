@@ -1,0 +1,24 @@
+{
+  "name": "random-str-msg-rf",
+  "version": "1.0.0",
+  "description": "Proyecto de practica para crear paquete de npm",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rfernandes28/random-str-msg-rf.git"
+  },
+  "keywords": [],
+  "author": "Ricardo Fernandes <ricardofernandes5d@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rfernandes28/random-str-msg-rf/issues"
+  },
+  "homepage": "https://github.com/rfernandes28/random-str-msg-rf#readme",
+  "bin": {
+    "random-str-msg-rf": "./bin/global.js"
+  },
+  "preferGlobal": true
+}

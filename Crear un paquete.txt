@@ -1,0 +1,59 @@
+Al crear un paquete para NPM, podrás compartir tu trabajo a varios desarrolladores e instalar tu paquete mediante npm install <tuPaquete>. Te mostraré un ejemplo, un proyecto de mensajes aleatorios que estará instalado globalmente y se ejecutará mediante la terminal.
+
+Cómo colocar un nombre a tu paquete
+Al publicar un paquete, es necesario que el nombre sea único, es decir, no debe existir ningún otro paquete publicado con el mismo nombre en NPM.
+
+Sin embargo, no agregues números, ya que NPM lo detecta como spam. Es válido agregar tu nombre de usuario para diferenciarlo,
+
+Asegúrate de eso buscando en la página oficial de NPM el nombre del paquete, si no hay coincidencias lo puedes publicar.
+
+Proyecto de mensajes aleatorios
+Como buena práctica, crea un repositorio remoto en GitHub y clónalo en tu computador. Después, inicia un proyecto con NPM con el comando npm init -y. Con esto ya tienes todo listo para empezar el proyecto.
+
+Dentro del proyecto crea la siguiente estructura de archivos:
+
+Un directorio llamado src que contenga el archivo principal del proyecto index.js
+Un directorio llamado bin que contenga un archivo ejecutable global.js
+
+Creando el archivo index.js
+En el archivo index.js agrega el siguiente código:
+
+Un array llamado messages que contiene los mensajes
+Una función funnyCommit que mostrará de manera aleatoria los elementos del array, es decir, los mensajes aleatorios.
+Al final, exporta la función mediante module.exports.
+
+Creando el archivo global.js
+En el archivo global.js agrega el siguiente código, en el que importamos el la función del archivo index.js y la ejecutamos.
+
+#!/usr/bin/env node es una instrucción que sirve para indicar que este archivo se ejecutará con Nodejs. Después realizamos la importación de nuestro archivo index.js. Finalmente, ejecutamos la función de mensajes aleatorios funnyCommit.
+
+Modificar el archivo package.json para el proyecto
+⠀⠀
+En el archivo package.json, agrega "bin" haciendo referencia a nuestro archivo global.js y "preferGlobal" en true.
+
+El nombre que especifiquemos dentro de "bin" será el que utilicemos en la terminal cuando el paquete esté instalado.
+
+¡Listo! Ya tienes un paquete para publicarlo en NPM.
+
+
+////
+
+
+La diferencia entre un módulo local y un módulo global es que el local se guarda DENTRO de la carpeta del proyecto, por lo cual, si quieres ejecutar el script en una terminal, tendrás que viajar primero a la carpeta.
+
+El global, en cambio, lo guarda en un path “universal” (tú mismo puedes personalizarlo) el punto es que puedes ejecutar los scripts de este módulo sin importar en dónde estés ubicado dentro de tu terminal.
+
+Según he leído, se recomienda siempre mantener módulos locales para evitar bugs tremendos de compatibilidad entre tus proyectos y realmente son pocos los módulos que merecen la pena trabajar globales, solo aquellos que te brindan comandos de terminal que frecuentes mucho o que uses en la mayoría de tus proyectos, de resto, es mejor manejar módulos locales.
+
+
+////
+
+Acerca de los caracteres dentro de console.log(…)
+
+Dentro del console.log() que has mostrado, se están utilizando secuencias de escape ANSI para dar formato al texto que se muestra en la consola.
+
+La secuencia \x1b se utiliza para indicar que se va a utilizar una secuencia de escape. Luego, [34m se refiere al código de color para el texto azul y [89m es el código para restablecer el color de la consola a su valor predeterminado.
+
+En resumen, el código \x1b[34m establece el color del texto en azul y \x1b[89m lo restablece a su valor predeterminado. En este caso, message es el texto que se mostrará en la consola con el color azul.
+
+Esto puede ser útil para hacer que ciertos mensajes se destaquen en la consola y sean más fáciles de leer o identificar.
